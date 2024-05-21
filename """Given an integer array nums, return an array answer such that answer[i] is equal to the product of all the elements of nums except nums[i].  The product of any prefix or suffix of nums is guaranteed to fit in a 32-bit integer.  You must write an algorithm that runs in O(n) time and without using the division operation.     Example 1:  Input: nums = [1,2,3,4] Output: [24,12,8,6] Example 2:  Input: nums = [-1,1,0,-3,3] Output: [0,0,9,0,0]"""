@@ -1,0 +1,16 @@
+def productExceptSelf(nums):
+        arr = [1]*len(nums)
+        pre = 1
+        for i in range(len(nums)):
+            arr[i] = pre
+            pre = pre*nums[i]
+        
+        suf = 1
+        for i in range(len(nums)-1, -1,-1):
+            arr[i] = suf*arr[i]
+            suf = suf*nums[i]
+
+        return arr
+
+nums = [1,2,3,4]
+productExceptSelf(nums)
